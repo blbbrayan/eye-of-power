@@ -16,12 +16,10 @@ module.exports = {
 
                 auth.create(
                     new User(user),
-                    error => { //onFail
-                        status(res, false, error)
-                    },
-                    (userRecord, uid) => { //onSuccess
-                        console.log('userRecord', userRecord);
-                        status(res, true, userRecord)
+                    error => status(res, false, error),
+                    user => { //onSuccess
+                        delete user.password;
+                        status(res, true, user)
                     }
                 )
             });
@@ -30,18 +28,18 @@ module.exports = {
                 const request = req.body;
 
                 const user = {
-                    email: request.email,
+                    username: request.username,
                     password: request.password
                 };
 
+                console.log('user', user);
+
                 auth.read(
                     new User(user),
-                    error => { //onFail
-                        status(res, false, error)
-                    },
-                    (userRecord, uid) => { //onSuccess
-                        console.log('userRecord', userRecord);
-                        status(res, true, userRecord)
+                    error => status(res, false, error),
+                    user => { //onSuccess
+                        delete user.password;
+                        status(res, true, user)
                     }
                 )
             });

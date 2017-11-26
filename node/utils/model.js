@@ -2,8 +2,7 @@ module.exports = {
     createFrom: (template) => {
         return class {
             constructor(obj){
-                for(let e in template)
-                    this[e] = obj[e] ? obj[e] : template[e];
+                Object.keys(Object.assign({}, obj, template)).forEach(e => this[e] = obj[e] !== undefined ? obj[e] : template[e]);
             }
         };
     }

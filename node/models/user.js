@@ -2,8 +2,8 @@ const model = require('../utils/model');
 
 module.exports = model.createFrom(
     {
+        username: "",
         email: "",
-        password: "",
-        characters: []
+        password: ""
     }
 );

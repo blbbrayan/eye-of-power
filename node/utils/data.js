@@ -27,7 +27,7 @@ function set(path, key, obj) {
 function get(path, key, onLoad) {
     database(path + _key(key)).once('value').then(snapshot => {
         let data = snapshot.val();
-        onLoad(key ? Object.assign({id: key}, data) : _list(data))
+        onLoad(key ? data : _list(data))
     });
 }
 
