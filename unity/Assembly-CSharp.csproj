@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{1CD37CD2-4DF8-D70A-651E-529FB7CDD07F}</ProjectGuid>
+    <ProjectGuid>{C3DA89E1-70C6-7D6C-993E-C8F831D35880}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -51,11 +51,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\codes\Ability.cs" />
-     <Compile Include="Assets\codes\Fireball.cs" />
-     <Compile Include="Assets\codes\Missle.cs" />
-     <Compile Include="Assets\codes\Movement.cs" />
-     <Compile Include="Assets\codes\TestHttp.cs" />
+     <Compile Include="Assets\Scripts\Ability.cs" />
+     <Compile Include="Assets\Scripts\Fireball.cs" />
+     <Compile Include="Assets\Scripts\Missle.cs" />
+     <Compile Include="Assets\Scripts\Movement.cs" />
+     <Compile Include="Assets\Scripts\TestHttp.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

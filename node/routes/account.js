@@ -10,7 +10,8 @@ module.exports = {
 
                 const user = {
                     email: request.email,
-                    password: request.password
+                    password: request.password,
+                    username: request.username
                 };
 
                 auth.create(
