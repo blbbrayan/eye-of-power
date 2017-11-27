@@ -29,7 +29,7 @@ function getUser(user, fail, success) {
 function updateUser(user, fail, success) {
     data.get('user', user.username, userData => {
         if(user.password === userData.password){
-            
+
         } else{
 
         }

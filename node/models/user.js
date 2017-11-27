@@ -4,6 +4,8 @@ module.exports = model.createFrom(
     {
         username: "",
         email: "",
-        password: ""
+        password: "",
+        characters: ["priest", "ogre"],
+        que: false
     }
 );
