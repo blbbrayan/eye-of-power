@@ -6,6 +6,8 @@ module.exports = model.createFrom(
         email: "",
         password: "",
         characters: ["priest", "ogre"],
-        que: false
+        que: false,
+        queId: "",
+        roomId: 0
     }
 );

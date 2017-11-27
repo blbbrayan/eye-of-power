@@ -49,7 +49,7 @@ function save(path, key, obj) {
 
 function add(path, item) {
     let key = database(path).push().key;
-    database().ref().update({[path + '/' + key]: item});
+    database().ref().update({[path + '/' + key]: Object.assign({id: key}, item)});
     return key;
 }
 
