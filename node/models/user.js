@@ -8,6 +8,6 @@ module.exports = model.createFrom(
         characters: ["priest", "ogre"],
         que: false,
         queId: "",
-        roomId: 0
+        roomId: ""
     }
 );

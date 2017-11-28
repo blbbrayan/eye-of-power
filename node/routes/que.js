@@ -44,11 +44,13 @@ function _startGame(user, selectedCharacter, que) {
     const roomId = "";//todo: roomId
 
     data.database('user').orderByChild('queId').equalTo(que.id).once('value').then(snapshot => {
-        const users = [user].concat(snapshot.val());
+        const val = Array.isArray(snapshot.val()) ? snapshot.val() : [];
+        const users = [user].concat(val);
         users.forEach(queUser => {
             queUser.queId = "";
             queUser.roomId = roomId;
             queUser.que = false;
+            console.log('queUser', queUser);
             data.set('user', queUser.username, queUser);
         });
         user.que = false;
@@ -65,9 +67,6 @@ module.exports = {
                     user = _toUser(req.body),
                     selectedCharacter = req.body.selectedCharacter;
 
-                console.log('user', user);
-                console.log('selectedCharacter', selectedCharacter);
-
                 data.get('user', user.username, userData => {
                     console.log('passwords', user.password === userData.password, user.password, userData.password);
                     if (user.password === userData.password) { // check if user is authenticated
@@ -76,7 +75,7 @@ module.exports = {
                             queList = queList || [];
                             const _run = fn => fn(user, selectedCharacter, queList[0]),
                                 updatedUser = _run( queList.length > 0 // if queList has room open
-                                        ? queList[0].length + 1 < 6 ? _joinQue : _startGame // if queList is not full once you joined
+                                        ? (queList[0].users.length + 1 < 6 ? _joinQue : _startGame) // if queList is not full once you joined
                                         : _createQue); // create que
                             status(res, true, updatedUser);
                         })
