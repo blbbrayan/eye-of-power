@@ -2,13 +2,14 @@ const data = require('./data');
 const passwordHash = require('password-hash');
 
 function createUser(user, fail, success) {
+    console.log('auth username', user.username);
     const create = () => {
         user.password = passwordHash.generate(user.password);
         data.set('user', user.username, user);
         success(user);
     };
     data.get('user', user.username, userData =>
-        userData.username === undefined
+        userData === null
             ? data.database('user').orderByChild('email').equalTo(user.email).once('value').then(snapshot =>
                 snapshot.val() !== null ? fail({code: 'email-taken', error: `email "${user.email}" taken`}) : create()
             )
@@ -29,7 +30,7 @@ function getUser(user, fail, success) {
 function updateUser(user, fail, success) {
     data.get('user', user.username, userData => {
         if(user.password === userData.password){
-            
+
         } else{
 
         }

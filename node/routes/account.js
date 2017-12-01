@@ -36,11 +36,8 @@ module.exports = {
 
                 auth.read(
                     new User(user),
-                    error => status(res, false, error),
-                    user => { //onSuccess
-                        delete user.password;
-                        status(res, true, user)
-                    }
+                    error => status(res, false, error), //onFail
+                    user => status(res, true, user) //onSuccess
                 )
             });
     }
