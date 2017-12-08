@@ -9,6 +9,8 @@ public class Log_in : MonoBehaviour {
     // Use this for initialization
 
     public Button btn;
+    public Toggle tgl;
+    public GameObject wrntxt;
     public InputField username;
     public InputField password;
 
@@ -20,13 +22,40 @@ public class Log_in : MonoBehaviour {
 
     void TaskOnClick()
     {
-        StartCoroutine(Upload());
+
+        if (username.text.Length <= 0 && password.text.Length <= 0)
+        {
+            wrntxt.SetActive(true);
+        }
+        else
+        {
+            wrntxt.SetActive(false);
+        }
+        
+
+        if(username.text.Length >=0 && password.text.Length >= 0)
+        {
+            StartCoroutine(Upload());
+        }
+        
+
+        if (tgl.isOn == false)
+        {
+            username.text = "";
+            password.text = "";
+        }
+
+        
+
+        
+
+
     }
 
 
-    
 
-	IEnumerator Upload() {
+
+    IEnumerator Upload() {
 		WWWForm form = new WWWForm();
 		form.AddField( "username", username.text );
 		form.AddField( "password", password.text );
@@ -40,6 +69,7 @@ public class Log_in : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+
+        
+    }
 }
