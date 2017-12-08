@@ -12,7 +12,6 @@ public class CreateUser : MonoBehaviour {
 	public InputField password;
 	public InputField cPassword;
 	public Text errorMsg;
-	public bool findFirstSelectable = false;
 	private WWW www;
 	private Dictionary<string, Object> jsonWWW;
 
