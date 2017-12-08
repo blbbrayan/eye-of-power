@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 482392669}
   - component: {fileID: 482392668}
   - component: {fileID: 482392667}
+  - component: {fileID: 482392670}
   m_Layer: 5
   m_Name: Sign Up
   m_TagString: Untagged
@@ -201,6 +202,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 482392665}
+--- !u!114 &482392670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 482392665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a718575b4bf0c428cf954f2e6800a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btn: {fileID: 482392667}
 --- !u!1 &556436023
 GameObject:
   m_ObjectHideFlags: 0
