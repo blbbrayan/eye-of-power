@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Text.RegularExpressions;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
-public class CreateUser : MonoBehaviour {
+public class SignUpScript: MonoBehaviour {
 	// Input Fields && Text Fields
 	public InputField userName;
 	public InputField email;
@@ -15,11 +16,16 @@ public class CreateUser : MonoBehaviour {
 	private WWW www;
 	private Dictionary<string, Object> jsonWWW;
 
-	public void SubmitName()
+	public void submitName()
 	{
 		if (isEmpty (userName) && isEmpty (email) && isEmpty (password) && isEmpty (password) && checkEmail() && checkUsername() && checkPasswords ()) {
 			StartCoroutine (submit ());
 		}
+	}
+
+
+	public void cancelButton(){
+		SceneManager.LoadScene("loginScene", LoadSceneMode.Additive);
 	}
 
 	public IEnumerator submit(){
